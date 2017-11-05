@@ -1,0 +1,19 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Io\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Io\\": "tests/"
+    }
+  },
+  "require": {
+    "psr/http-message": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.4",
+    "zendframework/zend-diactoros": "^1.6"
+  }
+}
