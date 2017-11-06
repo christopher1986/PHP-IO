@@ -8,7 +8,7 @@ use Io\Exception\IOException;
 use Io\Writer\StreamWriter;
 
 /**
- * The StreamWriterTest is a test suite for the StreamWriter class.
+ * The StreamWriterTest contains test cases for the StreamWriter class.
  */
 class StreamWriterTest extends TestCase
 {
@@ -26,6 +26,7 @@ class StreamWriterTest extends TestCase
     /**
      * Tests whether the stream has been populated with the provided characters.
      *
+     * @param string $string The string to write.
      * @dataProvider providerTestWritingOfCharactersToStream
      */
     public function testWritingOfCharactersToStream(string $string)
@@ -36,7 +37,7 @@ class StreamWriterTest extends TestCase
 
         $output = (string) $stream;
 
-        $this->assertEquals($output, $string);
+        $this->assertEquals($string, $output);
     }
 
     /**
@@ -53,7 +54,7 @@ class StreamWriterTest extends TestCase
     }
 
     /**
-     * Provides a collection of string for a single test.
+     * Provides a collection of strings for a single test.
      *
      * @return string[] A collection of strings to write to a stream.
      */
