@@ -17,8 +17,8 @@ class Strings
     public static function addLeading(string $string, string $chars): string
     {
         if (self::startsWith($string, $chars)) {
-            $length = mb_strlen($chars);
-            $string = mb_substr($string, $length);
+            $length = strlen($chars);
+            $string = substr($string, $length);
         }
 
         return $chars . $string;
