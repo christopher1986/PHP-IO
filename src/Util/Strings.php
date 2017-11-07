@@ -16,6 +16,26 @@ class Strings
      */
     public static function addLeading(string $string, string $chars): string
     {
-        return $chars . ltrim($string, $chars);
+        if (self::startsWith($string, $chars)) {
+            $length = mb_strlen($chars);
+            $string = mb_substr($string, $length);
+        }
+
+        return $chars . $string;
     }
+
+    /**
+     * Tests whether the specified string starts with the given prefix.
+     *
+     * @param string $string The string that will be tested.
+     * @param string $prefix The prefix to find.
+     * @return bool True if the specified string starts with the given prefix.
+     */
+    public static function startsWith(string $string, string $prefix): bool
+    {
+        $length = mb_strlen($prefix);
+
+        return (mb_substr($string, 0, $length) === $prefix);
+    }
+
 }

@@ -28,18 +28,47 @@ class StringsTest extends TestCase
     /**
      * Provides a collection of strings for a single test.
      *
-     * @return string[] A collection of strings to write to a stream.
+     * @return string[] A collection of strings to test
      */
     public function providerTestCharacterIsPrepended()
     {
         return [
             ['foo', '/', '/foo'],
             ['/bar', '/', '/bar'],
-            ['/bar', '*/', '*/bar'],
+            ['/bar', '*/', '*//bar'],
             ['!@#$%^', '!', '!@#$%^'],
             ['!@#$%^', '#', '#!@#$%^'],
             ['', '*', '*'],
             ['^', '^', '^']
         ];
     }
+
+    /**
+     * Tests whether the specified string starts with the given prefix.
+     *
+     * @param string $string The string that will be tested.
+     * @param string $prefix The character which the string must start with.
+     * @dataProvider providerTestStringStartsWith
+     */
+    public function testStringStartsWith(string $string, string $prefix)
+    {
+        $result = Strings::startsWith($string, $prefix);
+
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Provides a collection of strings for a single test.
+     *
+     * @return string[] A collection of strings test.
+     */
+    public function providerTestStringStartsWith()
+    {
+        return [
+            ['foo', 'foo'],
+            ['/bar', '/'],
+            ['!@#bar', '!@#'],
+        ];
+    }
+
 }
