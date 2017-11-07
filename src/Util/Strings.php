@@ -33,9 +33,7 @@ class Strings
      */
     public static function startsWith(string $string, string $prefix): bool
     {
-        $length = mb_strlen($prefix);
-
-        return (mb_substr($string, 0, $length) === $prefix);
+        return (mb_strpos($string, $prefix) === 0);
     }
 
 }
